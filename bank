@@ -1,0 +1,55 @@
+#include <iostream>
+#include <windows.h>
+#include <cstdlib>
+
+using namespace std;
+
+string PIN,karta,pokaz_fundusze,wyplata=wyplata,wplata=wplata,wroc;
+
+int stankonta=700,wartoscwpl,wartoscwypl;
+
+
+int main()
+{
+    cout << "Witaj w naszym banku!" << endl;
+    cout << "Wloz swoja karte,jak wlozyles wpisz: 1, jesli nie wlozyles to 2" << endl;
+    cin >>karta;
+
+if(karta=="1")
+{
+
+        cout<<"Witamy W Banku"<<endl;
+        cout<<"Twoje fundusza wynosza:"<<endl;
+        cout<<stankonta<<endl;
+        cout<<"Co chcesz zrobic ze swoimi funduszami.Jesli chcesz wplacic srodki wpisz dwa razy: wplata, jesli chcesz wyplacic wpisz dwa razy: wyplata"<<endl;
+        cin>>wyplata;
+        cin>>wplata;
+
+        if (wplata=="wplata")
+            {
+            system("cls");
+            cout<<"Ile chcesz wplacic?"<<endl;
+            cin>>wartoscwpl;
+            stankonta = stankonta+wartoscwpl;
+            cout<<"Twoj stan konta po dodaniu srodkow wynosi:"<<endl;
+            cout<<stankonta;
+            }
+            else if(wyplata=="wyplata")
+            {
+            system("cls");
+            cout<<"Ile chcesz wyplacic?"<<endl;
+            cin>>wartoscwypl;
+            stankonta = stankonta-wartoscwypl;
+            cout<<"Twoj stan konta po odjeciu srodkow wynosi:"<<endl;
+            cout<<stankonta;
+            }
+}
+     else
+    {
+
+        cout<<"Wystapil blad";
+    }
+
+
+    return 0;
+}
