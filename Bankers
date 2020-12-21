@@ -1,0 +1,148 @@
+#include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+char karta,wybor_menu,menu;
+
+int wejscie,ladowanie=1,stan_konta=100,kwota_przelewu,wplata,kwota_wyplaty;
+string przelew;
+int main()
+{
+
+//POCZATEK
+    cout << "------------------------------" << endl;
+    cout << " WITAMY W BANKU U MACIBORHKA " << endl;
+    cout << "------------------------------" << endl;
+    cout << "Prosze zaaplikowac karte kredytowa, jesli ja zaaplikowales nacisnij 0 "<< endl;
+    karta=getch();
+
+//KARTA
+    switch(karta)
+
+    {
+    case '0':
+            {
+                cout<<"Prosze poczekac trwa wczytywanie karty....";
+                while(wejscie!=ladowanie)
+                {
+                    Sleep(1000);
+                    system("cls");
+                    cout<<"Prosze czekac, trwa wczytywanie karty. ";
+                    Sleep(2000);
+                    system("cls");
+                    cout<<"Prosze czekac, trwa wczytywanie karty..";
+                    Sleep(2000);
+                    system("cls");
+                    cout<<"Prosze czekac, trwa wczytywanie karty...";
+                    Sleep(2000);
+                    system("cls");
+                    wejscie++;
+                }
+            }
+//POWITANIE
+    cout<<"\a";
+    cout<<"WITAMY W BANKOMACIE!";
+    Sleep(2000);
+    system("cls");
+//MENU
+while (true)
+{
+    cout << "------------------------------" << endl;
+    cout << " MENU BANKOMATU MACIBORHKA " << endl;
+    cout << "------------------------------" << endl;
+    cout<< "1. STAN KONTA" << endl;
+    cout << "---------------" << endl;
+    cout<< "2. PRZELEW" << endl;
+    cout << "---------------" << endl;
+    cout<< "3. WPLATA" << endl;
+    cout << "---------------" << endl;
+    cout<< "4. WYPLATA" << endl;
+    cout<< "" << endl;
+    cout<< "powered by macius" << endl;
+    wybor_menu=getch();
+//WYBOR
+    switch(wybor_menu)
+
+        case '1':
+        {
+            system("cls");
+            Sleep(1000);
+            cout<< "Twoj stan konta wynosi "<<stan_konta<<"!";
+            Sleep(1000);
+        }
+
+    switch(wybor_menu)
+        case '2':
+        {
+            system("cls");
+            Sleep(1000);
+            cout<< "Do kogo chcesz przelac? Podaj numer konta/imie "<<endl;
+            cin>>przelew;
+            cout<< "Wpisz kwote przelewu "<<endl;
+            cin>>kwota_przelewu;
+
+                if (kwota_przelewu<=stan_konta)
+            {
+                stan_konta=stan_konta-kwota_przelewu;
+                cout<< "Operacja zostala wykonana poprawnie! Kwota : "<<kwota_przelewu<<" zostala przelana do "<<przelew;
+            }
+                else
+            {
+                cout<< "Nie masz wystarczajacych srodkow na koncie!";
+            }
+        }
+    switch(wybor_menu)
+        case '3':
+        {
+            system("cls");
+            Sleep(1000);
+            cout<< "Jak wysoka kwote chcesz wplacic?"<<endl;
+            cin>>wplata;
+            stan_konta=wplata+stan_konta;
+            cout<< "Operacja zostala wykonana pomyslnie! Twoj stan konta po dodaniu pieniedzy wynosi "<<stan_konta;
+        }
+    switch(wybor_menu)
+        case '4':
+        {
+            system("cls");
+            Sleep(1000);
+            cout<< "Jak wysoka kwote chcesz wyplacic?"<<endl;
+            cin>>kwota_wyplaty;
+
+            if (kwota_wyplaty<=stan_konta)
+            {
+                stan_konta=stan_konta-kwota_wyplaty;
+                cout<< "Operacja zostala wykonana poprawnie! Twoj stan konta po odjeciu srodkow wynosi "<<stan_konta;
+            }
+            else
+            {
+               cout<< "Nie masz wystarczajacych srodkow na koncie!";
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+        getchar();getchar();
+        system("cls");
+    }
+
+}
+
+
+return 0;
+}
